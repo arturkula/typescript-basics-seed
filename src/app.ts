@@ -1,12 +1,9 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-let selectedTopping: string = 'pepperoni';
-
-function selectTopping(topping: string): void {
-    selectedTopping = topping;
+function orderError(error: string): never {
+    throw new Error(error);
+    // never going to return a value!
 }
 
-selectTopping('bacon');
-
-console.debug(selectedTopping);
+orderError('Something went wrong');
