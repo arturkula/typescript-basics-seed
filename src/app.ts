@@ -1,12 +1,10 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-let pizza: { name: string; price: number; getName(): string } = {
-    name: 'Plain Old Pepperoni',
-    price: 20,
-    getName() {
-        return pizza.name;
-    },
-};
+let sizes: number[];
 
-console.debug(`pizza: ${pizza.getName()}`);
+sizes = [1, 2, 3];
+
+let toppings: Array<string>;
+
+toppings = ['pepperoni', 'tomato', 'bacon'];
