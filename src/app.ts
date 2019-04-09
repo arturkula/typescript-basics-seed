@@ -1,10 +1,6 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-let sizes: number[];
+let pizza: [string, number, boolean];
 
-sizes = [1, 2, 3];
-
-let toppings: Array<string>;
-
-toppings = ['pepperoni', 'tomato', 'bacon'];
+pizza = ['Pepperoni', 20, true];
