@@ -1,14 +1,12 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-let coupon: string | null = 'pizza25';
+let pizzaSize: number = 1;
 
-function removeCoupon() {
-    coupon = null;
+function selectSize(size: 1 | 2 | 3): void {
+    pizzaSize = size;
 }
 
-console.debug(coupon);
+selectSize(3);
 
-removeCoupon();
-
-console.debug(coupon);
+console.debug(`pizza size: ${pizzaSize}`);
