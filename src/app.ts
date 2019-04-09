@@ -3,13 +3,8 @@
 
 let sumOrder: (price: number, quantity?: number) => number;
 
-sumOrder = (x, y): number => {
-    if (y) {
-        return x * y;
-    }
-    return x;
-};
+sumOrder = (x, y = 1): number => x * y;
 
-const sum = sumOrder(25);
+const sum = sumOrder(25, 5);
 
 console.debug(`total sum: ${sum}`);
