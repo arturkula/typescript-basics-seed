@@ -1,12 +1,10 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-let pizzaSize: number = 1;
+let sumOrder: (price: number, quantity: number) => number;
 
-function selectSize(size: 1 | 2 | 3): void {
-    pizzaSize = size;
-}
+sumOrder = (x, y): number => x * y;
 
-selectSize(3);
+const sum = sumOrder(25, 2);
 
-console.debug(`pizza size: ${pizzaSize}`);
+console.debug(`total sum: ${sum}`);
