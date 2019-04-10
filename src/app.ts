@@ -1,6 +1,15 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-let pizza: [string, number, boolean];
+type Size = 'small' | 'medium' | 'large';
+type Callback = (size: Size) => void;
 
-pizza = ['Pepperoni', 20, true];
+let pizzaSize: Size = 'small';
+
+const selectSize: Callback = x => {
+    pizzaSize = x;
+};
+
+selectSize('medium');
+
+console.debug(pizzaSize);
