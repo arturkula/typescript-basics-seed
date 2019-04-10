@@ -1,17 +1,21 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-interface Pizza {
+interface IPizza {
     name: string;
     sizes: string[];
+    getAvailableSizes(): string[];
 }
 
-let pizza: Pizza;
+let pizza: IPizza;
 
-function createPizza(name: string, sizes: string[]): Pizza {
+function createPizza(name: string, sizes: string[]): IPizza {
     return {
         name,
         sizes,
+        getAvailableSizes() {
+            return this.sizes;
+        },
     };
 }
 
