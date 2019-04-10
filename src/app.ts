@@ -1,15 +1,14 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-type Size = 'small' | 'medium' | 'large';
-type Callback = (size: Size) => void;
+type Pizza = { name: string; toppings: number };
 
-let pizzaSize: Size = 'small';
+const pizza: Pizza = { name: 'Blazing inferno', toppings: 5 };
 
-const selectSize: Callback = x => {
-    pizzaSize = x;
-};
+const serialized = JSON.stringify(pizza);
 
-selectSize('medium');
+function getNameFromJSON(obj: string): string {
+    return (JSON.parse(obj) as Pizza).name;
+}
 
-console.debug(pizzaSize);
+console.debug(getNameFromJSON(serialized));
