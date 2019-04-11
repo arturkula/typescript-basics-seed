@@ -1,9 +1,12 @@
 // run in console with:
 // clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-interface IPizza {
-    name: string;
+interface ISizes {
     sizes: string[];
+}
+
+interface IPizza extends ISizes {
+    name: string;
     getAvailableSizes(): string[];
 }
 
