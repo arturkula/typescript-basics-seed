@@ -1,31 +1,20 @@
-// run in console with:
-// clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
+// run in console with: clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-interface ISizes {
-    sizes: string[];
+class Pizza {
+    private name: string;
+    private toppings: string[] = [];
+
+    constructor(name: string) {
+        this.name = name;
+    }
+
+    public addTopping(topping: string) {
+        this.toppings.push(topping);
+    }
 }
 
-interface IPizza extends ISizes {
-    name: string;
-    toppings?: number;
-    getAvailableSizes(): string[];
-    [key: number]: string;
-}
+const pizza = new Pizza('pepperoni');
 
-let pizza: IPizza;
-
-function createPizza(name: string, sizes: string[]): IPizza {
-    return {
-        name,
-        sizes,
-        getAvailableSizes() {
-            return this.sizes;
-        },
-    };
-}
-
-pizza = createPizza('Pepperoni', ['small', 'medium']);
-pizza[1] = 'xyz';
-pizza.toppings = 1;
+pizza.addTopping('pepperoni');
 
 console.debug(pizza);
