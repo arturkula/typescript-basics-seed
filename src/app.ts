@@ -7,6 +7,7 @@ interface ISizes {
 
 interface IPizza extends ISizes {
     name: string;
+    toppings?: number;
     getAvailableSizes(): string[];
 }
 
@@ -23,5 +24,7 @@ function createPizza(name: string, sizes: string[]): IPizza {
 }
 
 pizza = createPizza('Pepperoni', ['small', 'medium']);
+
+pizza.toppings = 1;
 
 console.debug(pizza);
