@@ -12,24 +12,21 @@ class Sizes {
     }
 }
 
-const x = new Sizes(['small', 'medium']);
+// tslint:disable-next-line:max-classes-per-file
+class Pizza extends Sizes {
+    private readonly toppings: string[] = [];
 
-console.debug(x.availableSizes);
-
-x.availableSizes = ['medium', 'large'];
-
-console.debug(x.availableSizes);
-
-class Pizza {
-    constructor(public readonly name: string, private readonly toppings: string[] = []) {}
+    constructor(public readonly name: string, public readonly sizes: string[] = []) {
+        super(sizes);
+    }
 
     public addTopping(topping: string) {
         this.toppings.push(topping);
     }
 }
 
-const pizza = new Pizza('Pepperoni');
+const pizza = new Pizza('Pepperoni', ['small', 'medium']);
 
 pizza.addTopping('pepperoni');
 
-// console.debug(pizza.name);
+console.debug(pizza.name);
