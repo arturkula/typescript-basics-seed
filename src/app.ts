@@ -1,6 +1,10 @@
 // run in console with: clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-abstract class Sizes {
+interface ISizes {
+    availableSizes: string[];
+}
+
+abstract class Sizes implements ISizes {
     constructor(protected sizes: string[]) {}
 
     set availableSizes(sizes: string[]) {
@@ -12,9 +16,16 @@ abstract class Sizes {
     }
 }
 
+interface IPizza extends ISizes {
+    readonly name: string;
+    readonly toppings: string[];
+    updateSizes(sizes: string[]): void;
+    addTopping(topping: string): void;
+}
+
 // tslint:disable-next-line:max-classes-per-file
-class Pizza extends Sizes {
-    private readonly toppings: string[] = [];
+class Pizza extends Sizes implements IPizza {
+    public readonly toppings: string[] = [];
 
     constructor(public readonly name: string, sizes: string[] = []) {
         super(sizes);
