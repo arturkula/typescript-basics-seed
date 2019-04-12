@@ -1,6 +1,6 @@
 // run in console with: clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
-class Sizes {
+abstract class Sizes {
     constructor(public sizes: string[]) {}
 
     set availableSizes(sizes: string[]) {
