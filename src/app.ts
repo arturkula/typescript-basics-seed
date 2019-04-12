@@ -1,7 +1,7 @@
 // run in console with: clear; "running tsc:"; tsc; ""; "running node:"; ""; node .\dist\app.js; "";
 
 abstract class Sizes {
-    constructor(public sizes: string[]) {}
+    constructor(protected sizes: string[]) {}
 
     set availableSizes(sizes: string[]) {
         this.sizes = sizes;
@@ -16,8 +16,12 @@ abstract class Sizes {
 class Pizza extends Sizes {
     private readonly toppings: string[] = [];
 
-    constructor(public readonly name: string, public readonly sizes: string[] = []) {
+    constructor(public readonly name: string, sizes: string[] = []) {
         super(sizes);
+    }
+
+    public updateSizes(sizes: string[]) {
+        this.sizes = sizes;
     }
 
     public addTopping(topping: string) {
@@ -27,6 +31,8 @@ class Pizza extends Sizes {
 
 const pizza = new Pizza('Pepperoni', ['small', 'medium']);
 
-pizza.addTopping('pepperoni');
+console.debug(pizza.availableSizes);
 
-console.debug(pizza.name);
+pizza.updateSizes(['large']);
+
+console.debug(pizza.availableSizes);
